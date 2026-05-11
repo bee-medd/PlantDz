@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>PlantDz • Plantes cadeaux à Sétif</title>
+  <!-- Google Fonts Poppins + Inter fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 pour icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #1e1e1e;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      --green-deep: #2E7D32;
+      --green-light: #81C784;
+      --green-soft: #e8f5e9;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray-border: #e0e0e0;
+      --text-dark: #2d2d2d;
+      --text-muted: #5f5f5f;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.04);
+      --shadow-card: 0 12px 28px rgba(0,0,0,0.06);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+    }
+
+    h1, h2, h3, .font-poppins {
+      font-family: 'Poppins', 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* sticky header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+      z-index: 100;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 30px;
+      color: var(--green-deep);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
+      color: #1e1e1e;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: var(--green-deep);
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-desktop a {
+      text-decoration: none;
+      color: #2d2d2d;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-desktop a:hover {
+      color: var(--green-deep);
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.3);
+      transition: all 0.25s;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .btn-whatsapp i {
+      font-size: 1.1rem;
+    }
+    .btn-whatsapp:hover {
+      background-color: #1da851;
+      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.4);
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1466692476868-aef1a6b23ec5?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      background-blend-mode: overlay;
+      padding: 80px 0 70px;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+      margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      max-width: 850px;
+      margin: 0 auto 16px;
+      line-height: 1.3;
+    }
+    .hero .arabic-sub {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #4a4a4a;
+      margin-bottom: 36px;
+      direction: rtl;
+      font-family: 'Poppins', 'Inter', sans-serif;
+    }
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .btn-primary {
+      background: var(--green-deep);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(46,125,50,0.3);
+      transition: 0.2s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--green-deep);
+      color: var(--green-deep);
+      padding: 16px 36px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-primary:hover {
+      background: #1b5e20;
+    }
+    .btn-outline:hover {
+      background: var(--green-soft);
+    }
+    .features-row {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: #2d2d2d;
+    }
+    .feature-item i {
+      font-size: 2.2rem;
+      color: var(--green-deep);
+      background: #e8f5e9;
+      padding: 12px;
+      border-radius: 50%;
+    }
+
+    /* sections */
+    section {
+      padding: 60px 0;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 36px;
+      text-align: center;
+      color: #1e1e1e;
+    }
+
+    /* categories grid */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .cat-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+      font-weight: 600;
+      color: #2d2d2d;
+      border: 1px solid #f0f0f0;
+      cursor: default;
+    }
+    .cat-card i {
+      font-size: 2.2rem;
+      color: var(--green-deep);
+      margin-bottom: 12px;
+    }
+    .cat-card:hover {
+      box-shadow: var(--shadow-card);
+      border-color: var(--green-light);
+    }
+
+    /* produits */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s;
+      border: 1px solid #f1f1f1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+    }
+    .product-img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      background-color: #eef5ec;
+    }
+    .product-info {
+      padding: 20px 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .product-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .current-price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--green-deep);
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: #9e9e9e;
+      font-size: 0.95rem;
+    }
+
+    /* etapes */
+    .steps-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .step {
+      flex: 1;
+      min-width: 180px;
+      max-width: 240px;
+    }
+    .step-icon {
+      font-size: 2.8rem;
+      background: #e8f5e9;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      color: var(--green-deep);
+    }
+
+    /* pourquoi */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .why-item {
+      background: #f9fdf9;
+      padding: 24px 16px;
+      border-radius: 24px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* témoignages */
+    .testimonials {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      max-width: 400px;
+      border-left: 6px solid var(--green-light);
+    }
+
+    /* footer */
+    .footer {
+      background: #fafafa;
+      padding: 50px 0 30px;
+      margin-top: 30px;
+      border-radius: 50px 50px 0 0;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      .nav-desktop {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .categories-grid, .products-grid, .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .features-row {
+        gap: 24px;
+      }
+    }
+    @media (max-width: 500px) {
+      .categories-grid, .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo-area">
+        <div class="logo-icon">
+          <i class="fas fa-leaf" style="color: #2E7D32;"></i>
+          <i class="fas fa-gift" style="font-size: 18px; margin-left: -10px; color: #81C784;"></i>
+        </div>
+        <span class="logo-text">Plant<span>Dz</span></span>
+      </a>
+      <nav class="nav-desktop">
+        <a href="#">Accueil</a>
+        <a href="#">Boutique</a>
+        <a href="#">Cadeaux</a>
+        <a href="#">Comment ça marche</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1>PlantDz : On n'achète pas une plante, on offre une émotion.</h1>
+        <div class="arabic-sub">نباتات هدية... نوصلها لمن تحب في سطيف</div>
+        <div class="cta-group">
+          <a href="#" class="btn-primary"><i class="fas fa-gift"></i> Voir les cadeaux</a>
+          <a href="#" class="btn-outline"><i class="fab fa-whatsapp"></i> Commander sur WhatsApp</a>
+        </div>
+        <div class="features-row">
+          <div class="feature-item"><i class="fas fa-truck"></i> Livraison jour même Sétif</div>
+          <div class="feature-item"><i class="fas fa-pen-fancy"></i> Carte cadeau manuscrite</div>
+          <div class="feature-item"><i class="fas fa-seedling"></i> Plantes garanties</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÉGORIES -->
+    <section class="container">
+      <h2 class="section-title">Nos catégories</h2>
+      <div class="categories-grid">
+        <div class="cat-card"><i class="fas fa-gift"></i> Cadeaux</div>
+        <div class="cat-card"><i class="fas fa-leaf"></i> Plantes d'intérieur</div>
+        <div class="cat-card"><i class="fas fa-sun"></i> Plantes d'extérieur</div>
+        <div class="cat-card"><i class="fas fa-tag"></i> Moins de 1500 DA</div>
+        <div class="cat-card"><i class="fas fa-moon"></i> Packs Ramadan</div>
+        <div class="cat-card"><i class="fas fa-briefcase"></i> Pour entreprises</div>
+      </div>
+    </section>
+
+    <!-- PRODUITS PHARES -->
+    <section class="container">
+      <h2 class="section-title">✨ Produits phares</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1545165375-7c5f5e3c9e6d?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="product-info">
+            <div class="product-name">Pothos + Chocolat Belge</div>
+            <div class="price"><span class="current-price">3.200 DA</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="product-info">
+            <div class="product-name">Zamia pot céramique blanc</div>
+            <div class="price"><span class="current-price">2.800 DA</span><span class="old-price">3.200 DA</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1561181286-43c8b8d6e8c3?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="product-info">
+            <div class="product-name">Cadeau 'Mabrouk' Anthurium rouge</div>
+            <div class="price"><span class="current-price">4.500 DA</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1506634064465-7e2e2e2e2e2e?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="product-info">
+            <div class="product-name">Mini Bonsaï en verre</div>
+            <div class="price"><span class="current-price">1.900 DA</span><span class="old-price">2.400 DA</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2072&auto=format&fit=crop');"></div>
+          <div class="product-info">
+            <div class="product-name">Ficus + Carte personnalisée</div>
+            <div class="price"><span class="current-price">3.500 DA</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1542728928-1413a10b0a7f?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="product-info">
+            <div class="product-name">Pack Ramadan Lanterne + Pothos</div>
+            <div class="price"><span class="current-price">3.900 DA</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="container">
+      <h2 class="section-title">Comment ça marche</h2>
+      <div class="steps-container">
+        <div class="step"><div class="step-icon">1</div><strong>Choisissez votre plante cadeau</strong><p style="color:#5f5f5f;">Parcourez notre collection</p></div>
+        <div class="step"><div class="step-icon">2</div><strong>On écrit votre carte à la main</strong><p style="color:#5f5f5f;">Message personnalisé</p></div>
+        <div class="step"><div class="step-icon">3</div><strong>On livre à Sétif avec photo</strong><p style="color:#5f5f5f;">Photo avant livraison</p></div>
+      </div>
+    </section>
+
+    <!-- POURQUOI PLANTDZ -->
+    <section class="container">
+      <h2 class="section-title">Pourquoi PlantDz</h2>
+      <div class="why-grid">
+        <div class="why-item"><i class="fas fa-camera" style="font-size:2rem; color:#2E7D32;"></i><br>Photos réelles HD</div>
+        <div class="why-item"><i class="fas fa-file-alt" style="font-size:2rem; color:#2E7D32;"></i><br>Fiche soin détaillée</div>
+        <div class="why-item"><i class="fas fa-box" style="font-size:2rem; color:#2E7D32;"></i><br>Pots élégants inclus</div>
+        <div class="why-item"><i class="fas fa-heart" style="font-size:2rem; color:#2E7D32;"></i><br>Service cadeau complet</div>
+      </div>
+    </section>
+
+    <!-- TÉMOIGNAGES -->
+    <section class="container">
+      <h2 class="section-title">Avis clients de Sétif</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">“Commande pour l'anniversaire de ma mère, livraison rapide et carte magnifique. Elle a adoré !”<br><strong>— Amina, Sétif</strong></div>
+        <div class="testimonial-card">“Qualité incroyable, la plante était encore plus belle que sur les photos. Service au top.”<br><strong>— Karim, Sétif</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;"><i class="fas fa-leaf" style="color:#2E7D32;"></i><span style="font-weight:700;">PlantDz</span></div>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+        <p><i class="fab fa-instagram"></i> @PlantDz</p>
+      </div>
+      <div>
+        <p><i class="far fa-envelope"></i> info@plantdz.dz</p>
+        <p><i class="fas fa-map-marker-alt"></i> Sétif, Algérie</p>
+      </div>
+      <div>
+        <p style="font-size:0.9rem; color:#5f5f5f;">© 2025 PlantDz – L'émotion en cadeau</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
